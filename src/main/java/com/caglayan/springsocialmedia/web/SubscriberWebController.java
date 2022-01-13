@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/subscribers")
 public class SubscriberWebController {
     private final SubscriberService subscriberService;
@@ -27,12 +27,15 @@ public class SubscriberWebController {
     }
 
     @PostMapping("/create")
-    public String createSubScriber(@RequestBody Subscriber subScriber ) {
-        subscriberService.insertSubscriber(subScriber);
-
-        return "Kayıt Başarılı";
+    public String createSubScriber(@ModelAttribute Subscriber subscriber, Model model ) {
+        subscriberService.insertSubscriber(subscriber);
+        return "redirect:/";
     }
 
-
+    @GetMapping("/create")
+    public String createSubscriber(Model model){
+        model.addAttribute("subscriber", new Subscriber());
+        return "registersubscriber";
+    }
 
 }
