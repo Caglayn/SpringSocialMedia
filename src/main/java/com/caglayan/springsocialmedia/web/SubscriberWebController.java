@@ -38,4 +38,17 @@ public class SubscriberWebController {
         return "registersubscriber";
     }
 
+    @GetMapping("/detail/{id}")
+    public String getSubscriberDetail(@PathVariable Long id, Model model){
+        model.addAttribute("subscriber", subscriberService.getSubscriberById(id));
+        return "subscriberdetail";
+    }
+
+    @PostMapping("/update")
+    public String updateSubScriber(@ModelAttribute Subscriber subscriber, Model model ) {
+        subscriberService.insertSubscriber(subscriber);
+        System.out.println("updated " + subscriber);
+        return "redirect:/subscribers";
+    }
+
 }

@@ -25,4 +25,15 @@ public class SubscriberService {
         return subscribers;
     }
 
+    public Subscriber getSubscriberById(Long id){
+        return subscriberRepository.getById(id);
+    }
+
+    public void updateSubscriber(Subscriber subscriber){
+        Subscriber tempSubscriber = subscriberRepository.getById(subscriber.getId());
+        tempSubscriber.setSubscriberName(subscriber.getSubscriberName());
+        tempSubscriber.setSubscriberLastName(subscriber.getSubscriberLastName());
+        tempSubscriber.setSubscriberAddress(subscriber.getSubscriberAddress());
+        subscriberRepository.save(tempSubscriber);
+    }
 }

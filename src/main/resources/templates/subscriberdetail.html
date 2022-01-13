@@ -22,17 +22,32 @@
 </nav>
 <div class="container">
     <div class="page-header my-4 text-center">
-        <h1>Register</h1>
+        <h1>Details</h1>
     </div>
     <hr>
 
-    <form action="#" th:action="@{/subscribers/create}" th:object="${subscriber}" method="post">
-        <p>Subscriber Name: <input type="text" th:field="*{subscriberName}" /> </p>
-        <p>Subscriber LastName: <input type="text" th:field="*{subscriberLastName}" /> </p>
-        <p>Subscriber Address: <input type="text" th:field="*{subscriberAddress}" /> </p>
-        <p><input type="submit" value="Register" /> <input type="reset" value="Reset" /> </p>
-    </form>
+    <form action="#" th:action="@{/subscribers/update}" th:object="${subscriber}" method="post" class="row g-3">
+        <div class="col-md-6">
+            <label for="inputName" class="form-label">Subscriber Name</label>
+            <input type="text" class="form-control" id="inputName" th:field="*{subscriberName}">
+        </div>
+        <div class="col-md-6">
+            <label for="inputLastName" class="form-label">Subscriber LastName</label>
+            <input type="text" class="form-control" id="inputLastName" th:field="*{subscriberLastName}">
+        </div>
+        <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputAddress" th:field="*{subscriberAddress}">
+        </div>
+        <div class="col-md-6">
+            <label for="inputDate" class="form-label" >Date</label>
+            <input type="text" class="form-control" id="inputDate" disabled=true th:field="*{creationDate}">
+        </div>
 
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
 
 </div>
 

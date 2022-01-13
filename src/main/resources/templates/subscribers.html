@@ -13,7 +13,7 @@
 <body>
 <nav class="navbar navbar-dark bg-dark">
     <div class="container container-fluid">
-        <a class="navbar-brand">Social Media App</a>
+        <a href="/" class="navbar-brand">Social Media App</a>
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -32,12 +32,14 @@
             <td class="fw-bold">Subcsriber LastName</td>
             <td class="fw-bold">Subcsriber Address</td>
             <td class="fw-bold">Register Date</td>
+            <td class="fw-bold"></td>
         </tr>
         <tr th:each="subscriber:${subscribers}">
             <td th:text="${subscriber.subscriberName}">Name</td>
             <td th:text="${subscriber.subscriberLastName}">LastName</td>
             <td th:text="${subscriber.subscriberAddress}">Address</td>
             <td th:text="${subscriber.creationDate}">Date</td>
+            <td><a th:href="@{/subscribers/detail/{id}(id=${subscriber.id})}" class="btn btn-primary btn-sm">Detay</a></td>
         </tr>
     </table>
 
