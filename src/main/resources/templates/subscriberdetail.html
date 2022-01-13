@@ -27,6 +27,7 @@
     <hr>
 
     <form action="#" th:action="@{/subscribers/update}" th:object="${subscriber}" method="post" class="row g-3">
+        <input type="hidden" th:field="*{id}" id="subscriberId">
         <div class="col-md-6">
             <label for="inputName" class="form-label">Subscriber Name</label>
             <input type="text" class="form-control" id="inputName" th:field="*{subscriberName}">

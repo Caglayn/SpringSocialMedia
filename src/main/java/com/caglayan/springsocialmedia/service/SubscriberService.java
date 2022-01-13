@@ -31,9 +31,11 @@ public class SubscriberService {
 
     public void updateSubscriber(Subscriber subscriber){
         Subscriber tempSubscriber = subscriberRepository.getById(subscriber.getId());
-        tempSubscriber.setSubscriberName(subscriber.getSubscriberName());
-        tempSubscriber.setSubscriberLastName(subscriber.getSubscriberLastName());
-        tempSubscriber.setSubscriberAddress(subscriber.getSubscriberAddress());
-        subscriberRepository.save(tempSubscriber);
+        if (tempSubscriber != null){
+            tempSubscriber.setSubscriberName(subscriber.getSubscriberName());
+            tempSubscriber.setSubscriberLastName(subscriber.getSubscriberLastName());
+            tempSubscriber.setSubscriberAddress(subscriber.getSubscriberAddress());
+            subscriberRepository.save(tempSubscriber);
+        }
     }
 }

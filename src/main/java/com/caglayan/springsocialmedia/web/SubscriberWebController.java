@@ -46,7 +46,7 @@ public class SubscriberWebController {
 
     @PostMapping("/update")
     public String updateSubScriber(@ModelAttribute Subscriber subscriber, Model model ) {
-        subscriberService.insertSubscriber(subscriber);
+        subscriberService.updateSubscriber(subscriber);
         System.out.println("updated " + subscriber);
         return "redirect:/subscribers";
     }
