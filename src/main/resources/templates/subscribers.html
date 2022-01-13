@@ -39,7 +39,9 @@
             <td th:text="${subscriber.subscriberLastName}">LastName</td>
             <td th:text="${subscriber.subscriberAddress}">Address</td>
             <td th:text="${subscriber.creationDate}">Date</td>
-            <td><a th:href="@{/subscribers/detail/{id}(id=${subscriber.id})}" class="btn btn-primary btn-sm">Detay</a></td>
+            <td><a th:href="@{/subscribers/detail/{id}(id=${subscriber.id})}" class="btn btn-primary btn-sm">Detay</a>
+                <a th:href="@{/subscribers/delete/{id}(id=${subscriber.id})}" class="btn btn-danger btn-sm">Sil</a>
+            </td>
         </tr>
     </table>
 

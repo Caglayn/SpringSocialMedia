@@ -51,4 +51,10 @@ public class SubscriberWebController {
         return "redirect:/subscribers";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteSubscriber(@PathVariable Long id){
+        subscriberService.deleteSubscriber(id);
+        return "redirect:/subscribers";
+    }
+
 }

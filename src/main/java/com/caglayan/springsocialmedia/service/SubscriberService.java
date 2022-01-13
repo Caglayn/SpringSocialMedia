@@ -38,4 +38,8 @@ public class SubscriberService {
             subscriberRepository.save(tempSubscriber);
         }
     }
+
+    public void deleteSubscriber(Long id){
+        subscriberRepository.deleteById(id);
+    }
 }
